@@ -1,0 +1,150 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 18/02/2020 06:43
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-user:before { content: "\f100"; }
+.flaticon-chat:before { content: "\f101"; }
+.flaticon-photo-camera:before { content: "\f102"; }
+.flaticon-gear:before { content: "\f103"; }
+.flaticon-pencil-edit-button:before { content: "\f104"; }
+.flaticon-left-arrow:before { content: "\f105"; }
+.flaticon-add:before { content: "\f106"; }
+.flaticon-close:before { content: "\f107"; }
+.flaticon-restore:before { content: "\f108"; }
+.flaticon-star:before { content: "\f109"; }
+.flaticon-like:before { content: "\f10a"; }
+.flaticon-maps-and-flags:before { content: "\f10b"; }
+.flaticon-portfolio:before { content: "\f10c"; }
+.flaticon-home:before { content: "\f10d"; }
+.flaticon-heliport:before { content: "\f10e"; }
+.flaticon-key:before { content: "\f10f"; }
+.flaticon-paragraph:before { content: "\f110"; }
+.flaticon-hospital-sign-of-letter-h-inside-circles:before { content: "\f111"; }
+.flaticon-flash:before { content: "\f112"; }
+.flaticon-right-arrow:before { content: "\f113"; }
+.flaticon-foursquare-check-in:before { content: "\f114"; }
+.flaticon-left-arrow-1:before { content: "\f115"; }
+.flaticon-gallery:before { content: "\f116"; }
+.flaticon-magnifying-glass:before { content: "\f117"; }
+.flaticon-cursor:before { content: "\f118"; }
+.flaticon-closed-sign:before { content: "\f119"; }
+.flaticon-toggle:before { content: "\f11a"; }
+.flaticon-block:before { content: "\f11b"; }
+.flaticon-down:before { content: "\f11c"; }
+.flaticon-up-arrow:before { content: "\f11d"; }
+.flaticon-down-arrow:before { content: "\f11e"; }
+.flaticon-up-arrow-1:before { content: "\f11f"; }
+.flaticon-video-camera:before { content: "\f120"; }
+.flaticon-telephone:before { content: "\f121"; }
+.flaticon-menu:before { content: "\f122"; }
+.flaticon-paperclip:before { content: "\f123"; }
+.flaticon-microphone:before { content: "\f124"; }
+.flaticon-emoji:before { content: "\f125"; }
+.flaticon-send:before { content: "\f126"; }
+.flaticon-icon-157933:before { content: "\f127"; }
+.flaticon-info:before { content: "\f128"; }
+.flaticon-mortarboard:before { content: "\f129"; }
+.flaticon-mortarboard-1:before { content: "\f12a"; }
+.flaticon-home-1:before { content: "\f12b"; }
+.flaticon-cloud-download:before { content: "\f12c"; }
+.flaticon-rugby-player-about-to-throw-a-ball:before { content: "\f12d"; }
+.flaticon-star-1:before { content: "\f12e"; }
+.flaticon-facebook:before { content: "\f12f"; }
+.flaticon-twitter:before { content: "\f130"; }
+.flaticon-instagram:before { content: "\f131"; }
+.flaticon-google-plus:before { content: "\f132"; }
+.flaticon-linkedin:before { content: "\f133"; }
+.flaticon-love:before { content: "\f134"; }
+.flaticon-like-1:before { content: "\f135"; }
+.flaticon-flashlight:before { content: "\f136"; }
+    
+    $font-Flaticon-user: "\f100";
+    $font-Flaticon-chat: "\f101";
+    $font-Flaticon-photo-camera: "\f102";
+    $font-Flaticon-gear: "\f103";
+    $font-Flaticon-pencil-edit-button: "\f104";
+    $font-Flaticon-left-arrow: "\f105";
+    $font-Flaticon-add: "\f106";
+    $font-Flaticon-close: "\f107";
+    $font-Flaticon-restore: "\f108";
+    $font-Flaticon-star: "\f109";
+    $font-Flaticon-like: "\f10a";
+    $font-Flaticon-maps-and-flags: "\f10b";
+    $font-Flaticon-portfolio: "\f10c";
+    $font-Flaticon-home: "\f10d";
+    $font-Flaticon-heliport: "\f10e";
+    $font-Flaticon-key: "\f10f";
+    $font-Flaticon-paragraph: "\f110";
+    $font-Flaticon-hospital-sign-of-letter-h-inside-circles: "\f111";
+    $font-Flaticon-flash: "\f112";
+    $font-Flaticon-right-arrow: "\f113";
+    $font-Flaticon-foursquare-check-in: "\f114";
+    $font-Flaticon-left-arrow-1: "\f115";
+    $font-Flaticon-gallery: "\f116";
+    $font-Flaticon-magnifying-glass: "\f117";
+    $font-Flaticon-cursor: "\f118";
+    $font-Flaticon-closed-sign: "\f119";
+    $font-Flaticon-toggle: "\f11a";
+    $font-Flaticon-block: "\f11b";
+    $font-Flaticon-down: "\f11c";
+    $font-Flaticon-up-arrow: "\f11d";
+    $font-Flaticon-down-arrow: "\f11e";
+    $font-Flaticon-up-arrow-1: "\f11f";
+    $font-Flaticon-video-camera: "\f120";
+    $font-Flaticon-telephone: "\f121";
+    $font-Flaticon-menu: "\f122";
+    $font-Flaticon-paperclip: "\f123";
+    $font-Flaticon-microphone: "\f124";
+    $font-Flaticon-emoji: "\f125";
+    $font-Flaticon-send: "\f126";
+    $font-Flaticon-icon-157933: "\f127";
+    $font-Flaticon-info: "\f128";
+    $font-Flaticon-mortarboard: "\f129";
+    $font-Flaticon-mortarboard-1: "\f12a";
+    $font-Flaticon-home-1: "\f12b";
+    $font-Flaticon-cloud-download: "\f12c";
+    $font-Flaticon-rugby-player-about-to-throw-a-ball: "\f12d";
+    $font-Flaticon-star-1: "\f12e";
+    $font-Flaticon-facebook: "\f12f";
+    $font-Flaticon-twitter: "\f130";
+    $font-Flaticon-instagram: "\f131";
+    $font-Flaticon-google-plus: "\f132";
+    $font-Flaticon-linkedin: "\f133";
+    $font-Flaticon-love: "\f134";
+    $font-Flaticon-like-1: "\f135";
+    $font-Flaticon-flashlight: "\f136";

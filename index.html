@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Huge Gang</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/grude.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- flat icons -->
+	<link rel="stylesheet" type="text/css" href="images/font/flaticon.css">
+	<!-- google font family -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700|Ubuntu:400,400i,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- start hugegang 1st page-->
+<div class="hugegang_1st_page fixed_div" id="hugegang_loader">
+	<div class="home_logo">
+		<img src="images/logo-start.png">
+	</div>
+</div>
+<!-- end hugegang 1st page-->
+<!-- start hugegang login page-->
+<div class="hugegang_2nd_page " id="loginwith_page">
+	<div class="loginform">
+		<div class="logo_box">
+			<img src="images/logo-start.png">
+			<h6>Welcome Back to Hugegang</h6>
+		</div>
+		<div class="loginform_cntnt">
+			<form>
+				<ul>
+					<li>
+						<label>User Name</label>
+						<input type="text" name="">
+					</li>
+					<li>
+						<label>Password</label>
+						<input type="password" name="">
+					</li>
+					<li>
+						<input type="submit" name="" value="Log In">
+					</li>
+				</ul>
+			</form>
+		</div>
+		<div class="signup_with">
+			<p class="login_terms">By Tapping "Lob In", You agree with our <span><a href="#">Terms.</a></span> Learn how we process your data in ourPrivacy <span><a href="#">policy</a></span> and <span><a href="#">Cookies Policy</a></span>.</p>
+			
+			<button class="login_number_btn" id="show_mobile_fst_form">Log In with Phone Number</button>
+			<p class="or_sign"><span>Or</span> Sign in with</p>
+			<ul>
+				<li>
+					<a href="#" class="login_face"><span><img src="images/facebook.svg"></span> Facebook</a>
+				</li>
+				<li>
+					<a href="#"  class="login_twitter"><span><img src="images/twitter.svg"></span> Twitter</a>
+				</li>
+				<li>
+					<a href="#"  class="login_google"><span><img src="images/google-plus.svg"></span> Gmail</a>
+				</li>
+			</ul>
+			<button class="trobble_login" id="login_recovery">Troble Logging In?</button>
+		</div>
+	</div>
+</div>
+<!-- end hugegang login page-->
+<!-- start login phone number -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="mobile_form_show">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="rm_mobile_show"><span class="flaticon-left-arrow"></span></button>
+					<h4>My Number</h4>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="account_setting">
+					<div class="udate_number_input">
+						<div class="huge-row">
+							<div class="huge-4">
+								<select>
+									<option>IN +91</option>
+									<option>DZ +213</option>
+									<option>AI +1</option>
+								</select>
+							</div><!--end/col-->
+							<div class="huge-8">
+								<input type="number" name="" placeholder="Phone Number" id="mobile_number_login" oninput="login_mobile_number()">
+							</div><!--end/col-->
+							<div class="huge-12">
+								<p class="btm_txt login_txt">Changed Your Phone Number?<span><a href="#" class="login_email" id="mobile_form_loginemail">LOG IN BY EMAIL</a></span></p>
+								<script type="text/javascript">
+									function login_mobile_number() {
+									var number_value2 = document.getElementById("mobile_number_login").value;
+									var number_btn2 = document.getElementById("show_mibile_otp");
+									if(number_value2 == ""){
+										number_btn2.classList.remove("bgclr");
+										}
+									else{
+										number_btn2.classList.add("bgclr");
+									}
+								}
+								</script>
+							</div>
+						</div><!--end/row-->
+					</div>
+					<p class="btm_txt update_number">When You tap "Continue" Hugegang will send a text with verification code. Message and data rates may apply. The Verified phone number can be used to log in.</p>	
+					<a href="#" class="btm_txt">Learn what happens when your number changes</a>
+
+				</div><!--end/account-->
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="show_mibile_otp">CONTINUE</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end login phone number -->
+<!-- start login number otp -->
+<div class="btm_innerbgimg  btm_innerbgimg fixed_div left_divs" id="login_mobile_opt">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_login_mobile_opt"><span class="flaticon-left-arrow"></span></button>
+					<h4>My Code is</h4>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="account_setting udate_number_input">
+						<div class="huge-row">
+							<div class="huge-12">
+								<input class="otp_input" type="text" id="otp_mobile1" name="" maxlength="1" onkeyup="loginformotp1();"> 
+								<input class="otp_input" type="text" id="otp_mobile2" name="" maxlength="1" onkeyup="loginformotp2();"> 
+								<input class="otp_input" type="text" id="otp_mobile3" name="" maxlength="1" onkeyup="loginformotp3();">
+								<input class="otp_input" type="text" id="otp_mobile4" name="" maxlength="1" onkeyup="loginformotp4();">
+								<input class="otp_input" type="text" id="otp_mobile5" name="" maxlength="1" onkeyup="loginformotp5();">
+								<input class="otp_input" type="text" id="otp_mobile6" name="" maxlength="1" onkeyup="loginformotp6();">
+								<script type="text/javascript">
+									// otp 
+								function loginformotp1() {
+										var back_ = document.getElementById("otp_mobile1").value;
+										if (back_[0] == null) {
+											document.getElementById("otp_mobile1").focus();
+										}else{
+											document.getElementById("otp_mobile2").focus();
+										}
+
+									}
+									function loginformotp2() {
+										var back_1 = document.getElementById("otp_mobile2").value;
+										if (back_1[0] == null) {
+											document.getElementById("otp_mobile1").select(focus());
+										}else{
+											document.getElementById("otp_mobile3").select(focus());
+										}
+									}
+									function loginformotp3() {
+										var back_2 = document.getElementById("otp_mobile3").value;
+										if (back_2[0] == null) {
+											document.getElementById("otp_mobile2").select(focus());
+										}else{
+											document.getElementById("otp_mobile4").select(focus());
+										}
+
+									}
+									function loginformotp4() {
+										var back_3 = document.getElementById("otp_mobile4").value;
+										if (back_3[0] == null) {
+											document.getElementById("otp_mobile3").select(focus());
+										}else{
+											document.getElementById("otp_mobile5").select(focus());
+										}
+
+									}
+									function loginformotp5() {
+										var back_4 = document.getElementById("otp_mobile5").value;
+										if (back_4[0] == null) {
+											document.getElementById("otp_mobile4").select(focus());
+										}else{
+											document.getElementById("otp_mobile6").select(focus());
+										}
+									}
+									function loginformotp6() {
+										var back_5 = document.getElementById("otp_mobile6").value;
+										if (back_5[0] == null ) {
+											document.getElementById("otp_mobile5").select(focus());
+											document.getElementById("show_multi_stepform").classList.remove("bgclr");
+										}else{
+											document.getElementById("otp_mobile6").select(focus());
+											document.getElementById("show_multi_stepform").classList.add("bgclr");
+										}
+										
+									}
+								</script>
+							</div><!--end/col-->
+							<div class="huge-12 ">
+								<div class="resend_opt m-t-1">
+									<h6>+91 7838015881</h6>
+									<button id="otp_resend_btn">Resend</button>
+								</div>
+							</div><!--end/col-->
+						</div><!--end/row-->
+				</div><!--end/account-->
+				<div class="delete_account ">
+					<button class="cuntinue_btn" id="show_multi_stepform">CONTINUE</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end login number otp -->
+<!-- start mobile_form email -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="mobile_form_email">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_mobile_form_email"><span class="flaticon-left-arrow"></span></button>
+					<h2 style="padding-left: 10px;">Log In by Email</h2>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="account_setting login_email2">
+						<div class="huge-row">
+							<div class="huge-12">
+								<input type="email" name="" placeholder="Your Email is" id="mobile_form_email" 
+								oninput="return recoveryvalidateemail2();">
+							</div><!--end/col-->
+							<div class="huge-12">
+								<p class="btm_txt login_txt">We' ll email you a link that will instantly log you in</p>
+							</div>
+							<script type="text/javascript">
+								function recoveryvalidateemail2()  
+									{  
+									var x2=document.getElementById("mobile_form_email").value;  
+									// var atposition=x2.indexOf("@");  
+									// var dotposition=x2.lastIndexOf(".");  
+									if (/*atposition < 1 && dotposition < atposition + 2 &&*/ x2 == ""){  
+									   document.getElementById("mobile_form_cntinue_btn").classList.remove("bgclr");
+									  return false;  
+									  }
+									  else{
+									  	// return true;
+									  	document.getElementById("mobile_form_cntinue_btn").classList.add("bgclr");
+									  }  
+									}  
+							</script>
+						</div><!--end/row-->
+				</div><!--end/account-->
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="mobile_form_cntinue_btn">Send Email</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end mobile_formemail -->
+
+<!-- start multi step forms 1  -->
+<div class="hugegang_rolls btm_innerbgimg fixed_div left_divs" id="multistep_1st">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12">
+				<div class="rulls_close" id="remove_multistepform1">
+					<span class="flaticon-close"></span>
+				</div>
+				<div class="huge_rulls">
+					<span class="flaticon-heliport huge_icn"></span>
+					<h5>Welcome to Hugegang.<br>Please follow these House Rules.</h5>
+					<ul>
+						<li>
+							<h6>Be Yourself.</h6>
+							<p>Make sure Your Photos, age, and bio are true to who you are.</p>
+						</li>
+						<li>
+							<h6>Play it cool.</h6>
+							<p>Respect others and treat them as you would like to be treated</p>
+						</li>
+						<li>
+							<h6>Stay safe.</h6>
+							<p>Don't be too quick to give out personal information. <span><a href="#">Date safely</a></span></p>
+						</li>
+						<li>
+							<h6>Be proactive.</h6>
+							<p>Always report bad behavior.</p>
+						</li>
+					</ul>
+					<button class="btns_clr" id="show_multi_stepform2">Got It</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end multi step forms 1 -->
+<!-- start multi step forms 2 -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="multistep_2">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_multistepform2"><span class="flaticon-left-arrow"></span></button>
+					<h2 style="padding-left: 10px;">My  Email is</h2>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="account_setting login_email2">
+						<div class="huge-row">
+							<div class="huge-12">
+								<input type="email" name="" placeholder="Email Address" id="loginemail_id" oninput="loginemailid();">
+							</div><!--end/col-->
+							
+							<script type="text/javascript">
+								function loginemailid()  
+									{  
+									var x2=document.getElementById("loginemail_id").value;  
+									var atposition=x2.indexOf("@");  
+									var dotposition=x2.lastIndexOf(".");  
+									if (atposition < 1 && dotposition < atposition + 2 && x2 == ""){  
+									   document.getElementById("show_multi_stepform3").classList.remove("bgclr");
+									  return false;  
+									  }
+									  else{
+									  
+									  	document.getElementById("show_multi_stepform3").classList.add("bgclr");
+									  }  
+									}  
+							</script>
+						</div><!--end/row-->
+				</div><!--end/account-->
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="show_multi_stepform3">Continue</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- start multi step forms 2 -->
+<!-- start multi step forms 3 -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="multistep_3">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_multistepform3"><span class="flaticon-left-arrow"></span></button>
+					<h2 style="padding-left: 10px;">My First Name Is</h2>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="account_setting login_email2">
+						<div class="huge-row">
+							<div class="huge-12">
+								<input type="text" name="" placeholder="First Name" id="loginfirstname" oninput="loginname();">
+									<script type="text/javascript">
+								function loginname()  
+									{  
+									var x2=document.getElementById("loginfirstname").value;  
+									
+									if (x2 == ""){  
+									   document.getElementById("show_multi_stepform4").classList.remove("bgclr");
+									  return false;  
+									  }
+									  else{
+									  
+									  	document.getElementById("show_multi_stepform4").classList.add("bgclr");
+									  }  
+									}  
+							</script>
+							</div><!--end/col-->
+							<div class="huge-12">
+								<p class="btm_txt">This is how it will appear in Hugegang.</p>
+							</div>
+							
+						</div><!--end/row-->
+				</div><!--end/account-->
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="show_multi_stepform4">Continue</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end multi step forms 3 -->
+<!-- start multi step forms 4 -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="multistep_4">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_multistepform4"><span class="flaticon-left-arrow"></span></button>
+					<h2 style="padding-left: 10px;">My Birthday is</h2>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="date_of_birthday">
+					<input class="otp_input" id="dfb1" type="text"  name="" maxlength="1" placeholder="D" onkeyup="dateday1();"> 
+					<input class="otp_input" id="dfb2" type="text"  name="" maxlength="1" placeholder="D" onkeyup="dateday2();">/ 
+					<input class="otp_input" id="dfb3" type="text"  name="" maxlength="1" placeholder="M" onkeyup="datemonth1();">
+					<input class="otp_input" id="dfb4" type="text"  name="" maxlength="1" placeholder="M" onkeyup="datemonth2();">/
+					<input class="otp_input" id="dfb5" type="text"  name="" maxlength="1" placeholder="Y" onkeyup="dateyear1();">
+					<input class="otp_input" id="dfb6" type="text"  name="" maxlength="1" placeholder="Y" onkeyup="dateyear2();">
+					<input class="otp_input" id="dfb7" type="text"  name="" maxlength="1" placeholder="Y" onkeyup="dateyear3();">
+					<input class="otp_input" id="dfb8" type="text"  name="" maxlength="1" placeholder="Y" onkeyup="dateyear4();">
+					<script type="text/javascript">
+									// otp 
+								function dateday1() {
+										var date_ = document.getElementById("dfb1").value;
+										if (date_[0] == null ) {
+											document.getElementById("dfb1").focus();
+										}else{
+											document.getElementById("dfb2").focus();
+										}
+
+									}
+									function dateday2() {
+										var date_1 = document.getElementById("dfb2").value;
+										if (date_1[0] == null) {
+											document.getElementById("dfb1").select(focus());
+										}else{
+											document.getElementById("dfb3").select(focus());
+										}
+									}
+									function datemonth1() {
+										var date_2 = document.getElementById("dfb3").value;
+										if (date_2[0] == null) {
+											document.getElementById("dfb2").select(focus());
+										}else{
+											document.getElementById("dfb4").select(focus());
+										}
+
+									}
+									function datemonth2() {
+										var date_3 = document.getElementById("dfb4").value;
+										if (date_3[0] == null) {
+											document.getElementById("dfb3").select(focus());
+										}else{
+											document.getElementById("dfb5").select(focus());
+										}
+
+									}
+									function dateyear1() {
+										var date_4 = document.getElementById("dfb5").value;
+										if (date_4[0] == null) {
+											document.getElementById("dfb4").select(focus());
+										}else{
+											document.getElementById("dfb6").select(focus());
+										}
+									}
+									function dateyear2() {
+										var date_5 = document.getElementById("dfb6").value;
+										if (date_5[0] == null) {
+											document.getElementById("dfb5").select(focus());
+										}else{
+											document.getElementById("dfb7").select(focus());
+										}
+									}
+									function dateyear3() {
+										var date_4 = document.getElementById("dfb7").value;
+										if (date_4[0] == null) {
+											document.getElementById("dfb6").select(focus());
+										}else{
+											document.getElementById("dfb8").select(focus());
+										}
+									}
+									function dateyear4() {
+										var date_5 = document.getElementById("dfb8").value;
+										if (date_5[0] == null ) {
+											document.getElementById("dfb7").select(focus());
+											document.getElementById("show_multi_stepform").classList.remove("bgclr");
+										}else{
+											document.getElementById("dfb8").select(focus());
+											document.getElementById("show_multi_stepform").classList.add("bgclr");
+										}
+										
+									}
+								</script>
+				</div><!--end/col-->
+				<div class="huge-12 ">
+					<p class="btm_txt" style="text-align: center;">Your age will be public.</p>
+				</div>
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="show_multi_stepform5">Continue</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end multi step forms 4 -->
+<!-- start multi step forms 5  -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="multistep_5">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_multistepform5"><span class="flaticon-left-arrow"></span></button>
+					<h2 style="padding-left: 10px;">I am a</h2>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="show_me_btns">
+						<div class="huge-row">
+							<div class="huge-12">
+								<ul id="login_gender">
+									<li>
+										<label class="rad">
+										  <input type="radio" name="rad4" value="Men" onclick="myFunction2323();">
+										  <i></i> Men
+										</label>
+									</li>
+									<li>
+										<label class="rad">
+										  <input type="radio" name="rad4" value="Women" onclick="myFunction2323();">
+										  <i></i> Women
+										</label>		
+									</li>
+									<li>
+										<label class="rad">
+										  <input type="radio" name="rad4" value="Everyone" onclick="myFunction2323();">
+										  <i></i> Everyone
+										</label>		
+									</li>
+								</ul>
+								
+							  <label for="vehicle1" class="m-t-1" style="font-size: 15px;display: block;"> 
+									<input type="checkbox" name="vehicle1" value="Bike" style="vertical-align: middle;">
+									Show my gender on my profile
+							  </label>
+							</div><!--end/col-->
+						</div><!--end/row-->
+					</div>
+				
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="show_multi_stepform6">Continue</button>
+					<script type="text/javascript">
+									function myFunction2323() {
+									  	let genders = document.getElementById("login_gender").getElementsByTagName('input');
+									  		console.log(genders.length);
+									  	let txt = "";
+									  	let i;
+									  	for (i = 0; i < genders.length; i++) {
+									    	if (genders[i].checked) {	
+									    		
+									      		document.getElementById("show_multi_stepform6").classList.add("bgclr");
+									      		genders[i].setAttribute("checked", "checked");
+									    	}
+									    	else{
+									    		document.getElementById("show_multi_stepform6").classList.remove("bgclr");	
+									    	}
+									  	}
+									}
+									
+								</script>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- start multi step forms 5  -->
+
+<!-- start multi step forms 6  -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="multistep_6">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_multistepform6"><span class="flaticon-left-arrow"></span></button>
+					<h2 style="padding-left: 10px;">My Sexual Orientation Is</h2>
+					<button class="skip_btn">Skip</button>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="sexual_check form_sexual_check">
+					<h6>Select up to 3</h6>
+					<ul class="unstyled centered">
+						<li>
+							<input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="value1" checked>
+							<label for="styled-checkbox-1">Straight</label>
+						</li>
+						<li>
+							<input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value1" >
+							<label for="styled-checkbox-2">Gay</label>
+						</li>
+						<li>
+							<input class="styled-checkbox" id="styled-checkbox-3" type="checkbox" value="value1">
+							<label for="styled-checkbox-3">Lesbian</label>
+						</li>
+						<li>
+							<input class="styled-checkbox" id="styled-checkbox-4" type="checkbox" value="value1">
+							<label for="styled-checkbox-4">Bisexual</label>
+						</li>
+						<li>
+							<input class="styled-checkbox" id="styled-checkbox-5" type="checkbox" value="value1">
+							<label for="styled-checkbox-5">Asexual</label>
+						</li>
+						<li>
+							<input class="styled-checkbox" id="styled-checkbox-6" type="checkbox" value="value1">
+							<label for="styled-checkbox-6">Demisexual</label>
+						</li>
+						<li>
+							<input class="styled-checkbox" id="styled-checkbox-7" type="checkbox" value="value1">
+							<label for="styled-checkbox-7">Pansexual</label>
+						</li>
+						<li>
+							<input class="styled-checkbox" id="styled-checkbox-8" type="checkbox" value="value1">
+							<label for="styled-checkbox-8">Queer</label>
+						</li>
+						<li>
+							<input class="styled-checkbox" id="styled-checkbox-9" type="checkbox" value="value1">
+							<label for="styled-checkbox-9">Bicuious</label>
+						</li>
+						<li>
+							<input class="styled-checkbox" id="styled-checkbox-10" type="checkbox" value="value4">
+							<label for="styled-checkbox-10">Aromantic</label>
+						</li>
+					</ul>
+					<label for="vehicle1"> 
+									<input type="checkbox" name="vehicle1" value="Bike">
+									Show my gender on my profile
+							  </label>
+				</div>
+				
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="show_multi_stepform7">Continue</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- start multi step forms 6  -->
+
+<!-- start multi step forms 7  -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="multistep_7">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_multistepform7"><span class="flaticon-left-arrow"></span></button>
+					<h2 style="padding-left: 10px;">Show Me</h2>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="show_me_btns">
+						<div class="huge-row">
+							<div class="huge-12">
+								<ul>
+									<li>
+										<label class="rad">
+										  <input type="radio" name="show_me" value="a" checked="">
+										  <i></i> Women
+										</label>
+									</li>
+									<li>
+										<label class="rad">
+										  <input type="radio" name="show_me" value="b">
+										  <i></i> men
+										</label>		
+									</li>
+									<li>
+										<label class="rad">
+										  <input type="radio" name="show_me" value="b">
+										  <i></i> Everyone
+										</label>		
+									</li>
+								</ul>
+							</div><!--end/col-->
+						</div><!--end/row-->
+					</div>
+				
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="show_multi_stepform8">Continue</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end  multi step forms 7  -->
+
+<!-- start multi step forms 8 -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="multistep_8">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_multistepform8"><span class="flaticon-left-arrow"></span></button>
+					<h2 style="padding-left: 10px;">My University is</h2>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="account_setting login_email2">
+						<div class="huge-row">
+							<div class="huge-12">
+								<input type="text" name="" placeholder="University Name" id="login_university" oninput="login_university();">
+								<script type="text/javascript">
+								function login_university()  
+									{  
+									var x2=document.getElementById("login_university").value;  
+									
+									if (x2 == ""){  
+									   document.getElementById("show_multi_stepform9").classList.remove("bgclr");
+									  return false;  
+									  }
+									  else{
+									  
+									  	document.getElementById("show_multi_stepform9").classList.add("bgclr");
+									  }  
+									}  
+							</script>
+							</div><!--end/col-->
+							<div class="huge-12">
+								<p class="btm_txt">This is how it will appear in Hugegang.</p>
+							</div>
+							
+						</div><!--end/row-->
+				</div><!--end/account-->
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="show_multi_stepform9">Continue</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end multi step forms 8 -->
+
+<!-- start multi step forms 9 -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="multistep_9">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_multistepform9"><span class="flaticon-left-arrow"></span></button>
+					<h2 style="padding-left: 10px;">Add Photos</h2>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<p class="p-t-2">Hold, Drag and drop Reorder</p>
+				<div class="edit_profile">
+					<ul>
+						<li class="btn2">
+							<!-- <a href="#"> -->
+								<div class="profile_pic2">
+									<img src="images/profile.jpg">
+									<div class="profile_add_icons">
+										<span class="flaticon-add"></span>
+									</div>
+								</div>
+							<!-- </a> -->
+						</li>
+						<li class="btn2">
+							<!-- <a href="#"> -->
+								<div class="profile_pic2">
+									<!-- <img src=""> -->
+									<div class="profile_add_icons">
+										<span class="flaticon-add"></span>
+									</div>
+								</div>
+							<!-- </a> -->
+						</li>
+						<li class="btn2">
+							<a href="#">
+								<div class="profile_pic2">
+									<!-- <img src=""> -->
+									<div class="profile_add_icons">
+										<span class="flaticon-add"></span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="btn2">
+							<a href="#">
+								<div class="profile_pic2">
+									<!-- <img src=""> -->
+									<div class="profile_add_icons">
+										<span class="flaticon-add"></span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="btn2">
+							<a href="#">
+								<div class="profile_pic2">
+									<!-- <img src=""> -->
+									<div class="profile_add_icons">
+										<span class="flaticon-add"></span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="btn2">
+							<a href="#">
+								<div class="profile_pic2">
+									<!-- <img src=""> -->
+									<div class="profile_add_icons">
+										<span class="flaticon-add"></span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="btn2">
+							<a href="#">
+								<div class="profile_pic2">
+									<!-- <img src=""> -->
+									<div class="profile_add_icons">
+										<span class="flaticon-add"></span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="btn2">
+							<a href="#">
+								<div class="profile_pic2">
+									<!-- <img src=""> -->
+									<div class="profile_add_icons">
+										<span class="flaticon-add"></span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="btn2">
+							<a href="#">
+								<div class="profile_pic2">
+									<!-- <img src=""> -->
+									<div class="profile_add_icons">
+										<span class="flaticon-add"></span>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="show_multi_stepform10">Done</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end multi step forms 9 -->
+
+<!-- start multi step forms 10-->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="multistep_10">
+	<div class="huge-full">
+		<div class="huge-row ">
+			<div class="huge-12 ">
+				<div class="setting_header">
+					<button id="remove_multistepform10"><span class="flaticon-left-arrow"></span></button>
+				</div>
+			</div>
+			<div class="huge-12 se_m_t">
+				<div class="account_setting login_email2">
+
+						<div class="huge-row">
+							<div class="huge-12">
+								<div class="verify_email">
+									<img src="images/logo2.png">
+									<h3 class="p-t-1 p-b-3">Verify Your Email</h3>
+								</div>
+							</div>
+							<div class="huge-12">
+								<input type="email" name="" placeholder="Your Email is" id="verify_emailid" oninput="verifyemailid();">
+							</div><!--end/col-->
+							<div class="huge-12">
+								<p class="btm_txt login_txt">We' ll email you a link that will instantly log you in</p>
+							</div>
+							<script type="text/javascript">
+								function verifyemailid()  
+									{  
+									var x2=document.getElementById("verify_emailid").value;  
+									var atposition=x2.indexOf("@");  
+									var dotposition=x2.lastIndexOf(".");  
+									if (atposition < 1 && dotposition < atposition + 2 && x2 == ""){  
+									   document.getElementById("verify_email_btn").classList.remove("bgclr");
+									  return false;  
+									  }
+									  else{
+									  	document.getElementById("verify_email_btn").classList.add("bgclr");
+									  }  
+									}  
+							</script>
+						</div><!--end/row-->
+				</div><!--end/account-->
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="verify_email_btn">Send Email</button>
+				</div><!--end/version-->
+
+				<div class="verify_email_google_sign">
+					<p class="verify_email_or">OR</p>
+					<button class="email_goole_sign" id="show_multi_stepform11"><span></span>SIGN IN WITH GOOGLE</button>
+					<p class="verify_btm_txt">Verify instantly by connecting your Google account</p>
+				</div>
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end multi step forms 10 -->
+
+<!-- start enable location -->
+<div class="btm_innerbgimg fixed_div left_divs" id="multistep_11">
+	<div class="huge-full m-t-3">
+		<div class="huge-row p-l-2 p-r-2">
+			<div class="huge-12">
+				<div class="enable_icn">
+					<span class="flaticon-maps-and-flags"></span>
+				</div>
+				<div class="enable_cntnt">
+					<h3>Enable Location</h3>
+					<p>You'll need to enable your location in order to use Hugegang</p>
+				</div>
+			</div>
+			<div class="huge-12 se_m_t">
+				<div class="delete_account ">
+					<button class="btns_clr" >Allow Location</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+			<div class="huge-12">
+				<div class="enable_tell_me">
+					<button id="show_multi_stepform12">Tell Me More <span class="flaticon-right-arrow enable_arrow"></span></button>
+				</div>
+			</div>
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end enable location -->
+<!-- start meet People -->
+<div class="btm_innerbgimg fixed_div left_divs" id="multistep_12">
+	<div class="huge-full">
+		<div class="huge-row p-l-2 p-r-2 m-t-3">
+			<div class="huge-12">
+				<div class="enable_tell_me">
+					<button id="remove_multistepform12"><span class="flaticon-right-arrow up_arrow"></span></button>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="delete_account ">
+					<button class="btns_clr" >Allow Location</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+			
+			<div class="huge-12">
+				
+				<div class="enable_cntnt">
+					<h3>Meet People Near by</h3>
+					<p>Your Location will be used to show potential matches near you</p>
+				</div>
+			</div>
+			
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end meet people -->
+
+
+<!-- start recovery -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="account_recovery">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_account_recovery"><span class="flaticon-left-arrow"></span></button>
+					<h4>Account Recovery</h4>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="account_setting">
+					
+					<p class="p-b-3 p-t-2" style="text-align: center;">Changed your phone number or lost access to your Facebook account? We can help you log in with Your email.</p>
+
+				</div><!--end/account-->
+				<div class="delete_account ">
+					<button class="btns_clr" id="show_recovery_email">Log In With Email</button>
+				</div>
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end recovery -->
+
+
+
+<!-- start recovery email -->
+<div class="update_number_cntnt btm_innerbgimg fixed_div left_divs" id="recovery_email">
+	<div class="huge-full">
+		<div class="huge-row">
+			<div class="huge-12 setting_header_bdr">
+				<div class="setting_header">
+					<button id="remove_recovery_email"><span class="flaticon-left-arrow"></span></button>
+					<h2 style="padding-left: 10px;">Log In by Email</h2>
+				</div>
+			</div><!--end/col-->
+			<div class="huge-12 se_m_t">
+				<div class="account_setting login_email2">
+						<div class="huge-row">
+							<div class="huge-12">
+								<input type="email" name="" placeholder="Your Email is" id="recovery_email" 
+								oninput="return recoveryvalidateemail();">
+							</div><!--end/col-->
+							<div class="huge-12">
+								<p class="btm_txt login_txt">We' ll email you a link that will instantly log you in</p>
+							</div>
+							<script type="text/javascript">
+								function recoveryvalidateemail()  
+									{  
+									var x2=document.getElementById("recovery_email").value;  
+									// var atposition=x2.indexOf("@");  
+									// var dotposition=x2.lastIndexOf(".");  
+									if (/*atposition < 1 && dotposition < atposition + 2 &&*/ x2 == ""){  
+									   document.getElementById("recover_cntinue_btn").classList.remove("bgclr");
+									  return false;  
+									  }
+									  else{
+									  	// return true;
+									  	document.getElementById("recover_cntinue_btn").classList.add("bgclr");
+									  }  
+									}  
+							</script>
+						</div><!--end/row-->
+				</div><!--end/account-->
+				<div class="delete_account">
+					<button class="cuntinue_btn" id="recover_cntinue_btn">Send Email</button>
+				</div><!--end/version-->
+			</div><!--end/col-->
+		</div><!--end/row-->
+	</div>
+</div>
+<!-- end recovey email -->
+
+
+
+
+<script src="js/addclass.js"></script>
+
+
+</body>
+</html>

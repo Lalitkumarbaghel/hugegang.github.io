@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.onmove_slider {
+  color: #444;
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin: 0 auto;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.slider__viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+.slider__slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  font-size: 0;
+  white-space: nowrap;
+  line-height: 1;
+  /*z-index: 10;*/
+}
+.slider__button {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+.slider__button--prev {
+  left: 10px;
+}
+.slider__button--next {
+  right: 10px;
+}
+.slide-list__item {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  transition: left 0.4s;
+  background-color: #fff;
+}
+.slide-list__content-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*padding: 20px;*/
+  box-sizing: border-box;
+  /*font-size: 1rem;*/
+  /*text-align: center;*/
+}
+.slider-pager {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: -50px;
+}
+.slider-pager__item {
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  line-height: 2rem;
+  padding: 0;
+  margin: 0 5px;
+  background-color: #fff;
+}
+.ontouch_div{
+    width: 100%;
+    height: 330px;
+    min-height: 370px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 2px rgba(90, 90, 90, 0.63);
+    position: relative;
+    margin-top: 10px;
+}
+.ontouch_div img{
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    min-height: 370px;
+    border-radius: 5px;
+    position: relative;
+}
+.like_dislike_btns_overlay{
+    width: 100%;
+    height: 50%;
+    top: 0px;
+    position: absolute;
+}
+.like_dislike_btns button{
+    display: inline-block;
+    white-space: normal;
+}
+.like_dislike_btns button.like_ontouch_btn{
+     float: left; 
+    width: 115px;
+    height: 60px;
+    border: 4px solid #0ee41e;
+    font-size: 40px;
+    font-weight: 700;
+    color: #0ee41e;
+    border-radius: 10px;
+    transform: rotate(-25deg) translate(10px, 60px);
+    -webkit-transform: rotate(-25deg) translate(10px, 60px);
+    -moz-transform: rotate(-25deg) translate(10px, 60px);
+    -o-transform: rotate(-25deg) translate(10px, 60px);
+}
+.like_dislike_btns button.nope_ontouch_btn{
+    
+     float: right; 
+    width: 115px;
+    height: 60px;
+    border: 4px solid #e43d0e;
+    font-size: 40px;
+    font-weight: 700;
+    color: #e43d0e;
+    border-radius: 10px;
+    transform: rotate(25deg) translate(-10px, 60px);
+    -webkit-transform: rotate(25deg) translate(-10px, 60px);
+    -moz-transform: rotate(25deg) translate(-10px, 60px);
+    -o-transform: rotate(25deg) translate(-10px, 60px);
+}
+.like_dislike_btns button.super_ontouch_btn {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 90px;
+    border: 4px solid #0e7ce4;
+    font-size: 40px;
+    line-height: 37px;
+    font-weight: 700;
+    color: #0e7ce4;
+    border-radius: 10px;
+    transform: rotate(-15deg) translate(-25px, 70px);
+    -webkit-transform: rotate(-15deg) translate(-25px, 70px);
+    -moz-transform: rotate(-15deg) translate(-25px, 70px);
+    -o-transform: rotate(-15deg) translate(-25px, 70px);
+}
+.ontouch_overlay_cntn {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(0, #000000, rgba(255, 255, 255, 0));
+    bottom: 0;
+    transition: all 0.5s ease-in;
+    border-radius: 5px;    
+}
+
+.course_overlay_bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 8px;
+    padding: 8px;
+    left: 0px;
+}
+
+.ontouch_overlay_cntn .course_overlay_bottom h1 {
+    padding-bottom: 5px;
+    color: #fff;
+    font-size: 27px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ontouch_overlay_cntn .course_overlay_bottom h1 span{
+    color: #fff;
+    font-weight: normal;
+    font-size: 22px;
+    vertical-align: middle;
+    padding-left: 8px;
+}
+.ontouch_overlay_cntn .course_overlay_bottom h1 span::before{
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.ontouch_overlay_cntn .course_overlay_bottom p {
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 6px;
+    line-height: 16px; 
+}
+.ontouch_overlay_cntn .course_overlay_bottom p span::before{
+    color: #fff;
+    display: inline-block;
+    font-size: 15px;
+    vertical-align: middle;
+    padding-right: 5px;
+}
+
+.ontouch_btm_btn {
+    margin-top: 15px;
+}
+.ontouch_btm_btn ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ontouch_btm_btn li{
+    width: 20%;
+    text-align: center;
+   position: relative;
+}
+.ontouch_btm_btn li button{
+    display: block;
+    width: 55px;
+    height: 55px;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px 2px rgb(193, 193, 193,0.5);
+    border: 1px solid rgb(222, 220, 220);
+     
+}
+.ontouch_btm_btn li button span::before{
+    font-size: 23px;
+    font-weight: 700;
+    display: grid;
+}
+.ontouch_btm_btn li button.btm_small_btns{
+    width: 43px;
+    height: 43px;
+}
+.ontouch_btm_btn li button.btm_small_btns span::before{
+    font-size: 20px;
+}
+.ontouch_btm_btn li button span.flaticon-restore::before{
+    color: #009fb9;
+}
+.ontouch_btm_btn li button span.flaticon-close::before{
+    color: #e43d0e;
+}
+.ontouch_btm_btn li button span.flaticon-like-1::before{
+    color: #0e7ce4;
+}
+.ontouch_btm_btn li button span.flaticon-love::before{
+    color: #0ee41e;
+}
+.ontouch_btm_btn li button span.flaticon-flashlight::before{
+    color: #a50ee4;
+}
+.ontouch_btns_overlay{
+    position: absolute;
+    width: 73%;
+    height: auto;
+    top: -2px;
+    right: 4px;
+    background-color: #fff;
+    border: 1px solid #b9b9b9;
+    border-radius: 25px;
+}
+.ontouch_btns_overlay p{
+    font-size: 11px;
+    font-weight: 700;
+    color: #a50ee4;
+    line-height: 1;
+    padding: 2px;
+}
+	</style>
+</head>
+<body>
+<div id="categorySlider" class="onmove_slider">
+        <div class="slider__viewport">
+          <ul class="slider__slides slide-list js-slide-list" style ="left: -100%"> 
+            <li class="slide-list__item js-slide-list-item">
+              <div class="slide-list__content-area">
+                <div class="ontouch_div">
+                  <img src="images/girls.jpg" style="width:100%">
+                  <div class="like_dislike_btns_overlay">
+                    <div class="like_dislike_btns">
+                      <button class="like_ontouch_btn">Like</button>
+                      <button class="nope_ontouch_btn">Nope</button>
+                      <button class="super_ontouch_btn">Super Like</button>
+                    </div><!--like dislike btns-->
+
+                  </div>
+                  <div class="ontouch_overlay_cntn">
+                    <div class="course_overlay_bottom">
+                      <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+                      <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+                      <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+                      <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+                      <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls2.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls3.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls4.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls2.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls3.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls4.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls2.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls3.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls4.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls2.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls3.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls4.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls2.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls3.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls4.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls2.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls3.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls4.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls2.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls3.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls4.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+            <li class="slide-list__item js-slide-list-item">
+               <div class="slide-list__content-area">
+                <div class="ontouch_div">
+		          <img src="images/girls2.jpg" style="width:100%">
+		          <div class="like_dislike_btns_overlay">
+		            <div class="like_dislike_btns">
+		              <button class="like_ontouch_btn">Like</button>
+		              <button class="nope_ontouch_btn">Nope</button>
+		              <button class="super_ontouch_btn">Super Like</button>
+		            </div><!--like dislike btns-->
+
+		          </div>
+		          <div class="ontouch_overlay_cntn">
+		            <div class="course_overlay_bottom">
+		              <h1 id="show_inner_page">Dr Priya<span>35</span><span class="flaticon-info"></span></h1>
+		              <p><span class="flaticon-rugby-player-about-to-throw-a-ball"></span> post Doctoral Researcher at Tel advancement odwsjkdsm kjdsak</p>
+		              <p><span class="flaticon-mortarboard"></span> University of Delhi</p>
+		              <p> <span class="flaticon-home-1"></span> Lives in Delhi</p>
+		              <p><span class="flaticon-maps-and-flags"></span> 1 Km Away</p>
+		            </div>
+		          </div>
+		        </div>
+              </div>
+            </li><!--1st slider-->
+
+
+             
+          </ul>
+        </div>
+
+		<div class="ontouch_btm_btn">
+			<ul>
+				<li>
+					<button class="btm_small_btns"><span class="flaticon-restore"></span></button>
+				</li>
+				<li>
+					<button data-direction="prev" class="js-arrow-button"><span class="flaticon-close"></span></button>
+				</li>
+				<li>
+					<button class="btm_small_btns"><span class="flaticon-like-1"></span></button>
+				</li>
+				<li>
+					<button data-direction="next " class="js-arrow-button"><span class="flaticon-love"></span></button>
+				</li>
+				<li>
+					<button class="btm_small_btns"><span class="flaticon-flashlight"></span>
+							
+					</button>
+					<div class="ontouch_btns_overlay">
+							<p> &#x20B9;29.00</p>
+						</div>
+				</li>
+			</ul>
+				<script type="text/javascript">
+	    			var Slider = function ( id ){
+					  this.slider = document.getElementById( id );
+					  this.slideList = this.slider.getElementsByClassName('js-slide-list')[0];
+					  this.slideListItems = this.slider.getElementsByClassName('js-slide-list-item');
+					  this.slideWidth = this.slideListItems[0].offsetWidth;
+					  this.slidesLength = this.slideListItems.length; 
+					  this.current = 1;
+					  this.direction;
+					  this.animating = false;
+					  
+				};
+
+				Slider.prototype = {
+				  constructor : Slider,
+				  init : function(){
+				    this.listenEvents();
+				    this.cloneFirstAndLastItem();
+				  },
+				  
+				  listenEvents : function(){
+				    var that = this;
+				    var arrowButtons = this.slider.getElementsByClassName('js-arrow-button');
+				    for (var i = 0; i < arrowButtons.length; i++) {
+				      arrowButtons[i].addEventListener('click', function(){
+				        that.clickArrowButton( this );
+				      });
+				    };
+				    var pagerItems = this.slider.getElementsByClassName('js-pager-item');
+				    for (var i = 0; i < pagerItems.length; i++){
+				      pagerItems[i].addEventListener('click', function(){
+				        that.clickPagerItem( this );
+				      });
+				    };
+				  },
+				  
+				  cloneFirstAndLastItem : function(){
+				    var firstSlide = this.slideListItems[0];
+				    var lastSlide = this.slideListItems[ this.slidesLength - 1 ];
+				    var firstSlideClone = firstSlide.cloneNode( true );
+				    var lastSlideClone = lastSlide.cloneNode( true );
+				    firstSlideClone.removeAttribute('data-slide-index');
+				    lastSlideClone.removeAttribute('data-slide-index');
+				    
+				    this.slideList.appendChild( firstSlideClone );
+				    this.slideList.insertBefore( lastSlideClone, firstSlide );
+				  },
+
+				  clickArrowButton : function( el ){
+				    var direction = el.getAttribute('data-direction');
+				    var pos = parseInt( this.slideList.style.left ) || 0;
+				    var newPos; 
+				    this.direction = direction === 'prev' ? -1 : 1;
+				    newPos = pos + ( -1 * 100 * this.direction );
+				    if( !this.animating ) {
+				      this.slideTo(this.slideList, function( progress ){
+				        return Math.pow(progress, 2);
+				      }, pos, newPos, 500);
+				      this.current += this.direction;
+				    }
+				  },
+				  
+				  clickPagerItem : function( el ){
+				    var slideIndex = el.getAttribute('data-slide-index');
+				    var targetSlide = this.slider.querySelector('.js-slide-list-item[data-slide-index="' + slideIndex +'"]');
+				    var pos = parseInt( this.slideList.style.left ) || 0;
+				    var newPos = Math.round( targetSlide.offsetLeft / targetSlide.offsetWidth ) * 100 * -1;
+				    
+				    if( !this.animating && pos !== newPos ){
+				      this.slideTo(this.slideList, function( progress ){
+				        return Math.pow(progress, 2);
+				      }, pos, newPos, 500);
+				      this.current = parseInt(slideIndex) + 1;
+				    }
+				    
+				  },
+
+				  
+				  slideTo : function( element, deltaFunc, pos, newPos, duration ){
+				   this.animating = true;
+				   this.animate({
+				     delay: 20,
+				     duration: duration || 1000,
+				     deltaFunc: deltaFunc,
+				     step: function( delta ){
+				       var direction = pos > newPos ? 1 : -1
+				       element.style.left = pos  + Math.abs(newPos - pos) * delta * direction * -1 + '%';
+				     }
+				   }); 
+				  },
+				  
+				  animate : function( opts ){
+				    var that = this;
+				    var start = new Date();
+				    var id = setInterval(function(){
+				      var timePassed = new Date - start;
+				      var progress = timePassed / opts.duration;
+				      
+				      if( progress > 1 ) {
+				        progress = 1;
+				      }
+				      var delta = opts.deltaFunc( progress );
+				      opts.step( delta );
+				      
+				      if( progress === 1 ){
+				        clearInterval( id );
+				        that.animating = false;
+				        that.checkCurrentSlide();
+				      }
+				    }, opts.delay || 10 );
+				  },
+				  
+				  checkCurrentSlide : function( ){
+				    var cycle = false; 
+				    cycle = !!( this.current === 0 || this.current > this.slidesLength )
+				    if ( cycle ) {
+				      this.current = ( this.current === 0 ) ? this.slidesLength : 1;
+				      this.slideList.style.left = ( -1 * this.current * 100 ) + '%';
+				    } 
+				    
+				  }
+				};
+
+			document.addEventListener('DOMContentLoaded', function(){
+			    new Slider('categorySlider').init();
+			})
+	   	</script>
+			
+		</div>
+
+       
+  </div>
+</body>
+</html>
